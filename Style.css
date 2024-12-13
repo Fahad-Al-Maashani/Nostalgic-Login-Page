@@ -7,15 +7,29 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
+    animation: backgroundAnimation 10s infinite alternate;
 }
 
-.login-container {
+@keyframes backgroundAnimation {
+    0% { background-color: #2b2b2b; }
+    50% { background-color: #1f1f1f; }
+    100% { background-color: #2b2b2b; }
+}
+
+.container {
     background-color: #1f1f1f;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     width: 350px;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 h1 {
@@ -23,16 +37,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-top: 20px;
-    color: #ecf0f1;
-}
-
 input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    margin-top: 10px;
+    margin-bottom: 20px;
     border: 2px solid #34495e;
     border-radius: 10px;
     background-color: #34495e;
@@ -40,14 +48,13 @@ input {
 }
 
 button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 30px;
+    padding: 10px 20px;
+    margin: 5px;
     background-color: #e74c3c;
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -56,6 +63,36 @@ button:hover {
     background-color: #c0392b;
 }
 
-button:active {
-    background-color: #96281b;
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #34495e;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    cursor: pointer;
+    color: #e74c3c;
+}
+
+li span:hover {
+    color: #c0392b;
+}
+
+@keyframes itemFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+li {
+    animation: itemFadeIn 0.5s ease-in-out;
 }
